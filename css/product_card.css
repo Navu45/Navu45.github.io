@@ -72,7 +72,7 @@
     }
 
     #description {
-        width: fit-content;
+        width: 100%;
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
