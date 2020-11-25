@@ -69,11 +69,11 @@
     }
 
     #product_card #product_image {
-        width: 100%;
+        width: fit-content;
     }
 
     #description {
-        width: 100%;
+        width: fit-content;
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
