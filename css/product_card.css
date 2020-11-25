@@ -34,7 +34,7 @@
     height: 2rem;
 }
 
-@media screen and (max-device-width: 1080px), (max-width: 1080px){
+@media screen and (max-width: 1080px){
     #product_card {
         flex-direction: column;
         align-self: baseline;
