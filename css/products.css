@@ -47,7 +47,6 @@
 
 @media screen and (max-device-width: 1080px){
     #product_card div {
-        width: min-content;
         display: flex;
         align-items: center;
         justify-content: space-between;

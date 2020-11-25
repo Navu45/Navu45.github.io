@@ -252,7 +252,7 @@ li, .list_item {
     font-size: 0.67rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
     footer {
         flex-direction: column;
         justify-content: flex-start;
@@ -273,7 +273,7 @@ li, .list_item {
     }
 }
 
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1080px) {
     footer {
         justify-content: space-between;
     }
