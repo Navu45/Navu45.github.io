@@ -249,7 +249,7 @@ li, .list_item {
     height: fit-content;
     background-color: #0F1640;
     color: white;
-    font-size: 0.67rem;
+    font-size: 0.8rem;
 }
 
 @media screen and (max-width: 1080px) {

@@ -38,7 +38,6 @@
     #product_card {
         flex-direction: column;
         align-self: baseline;
-        font-size: 10rem;
     }
 
 
@@ -54,18 +53,13 @@
     #description {
         width: 100%;
         margin-left: 5%;
-    }
-
-    #price {
-        width: max-content;
     }
 }
 
 @media screen and (max-device-width: 1080px){
     #product_card {
         flex-direction: column;
-        align-self: baseline;
-        font-size: 10rem;
+        align-self: center;
     }
 
 
@@ -81,9 +75,5 @@
     #description {
         width: 100%;
         margin-left: 5%;
-    }
-
-    #price {
-        width: max-content;
     }
 }
