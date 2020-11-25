@@ -73,7 +73,7 @@
     }
 
     #description {
-        width: 100%;
+        width: fit-content;
         margin-left: 5%;
     }
 }
