@@ -1,6 +1,5 @@
 let setProductCard = function (product_card, info) {
     product_card.querySelector("#product_name").innerHTML = info.name;
-    product_card.querySelector("#price").innerHTML = info.price;
     product_card.querySelector("#product_image").setAttribute("src", info.img_url);
 }
 
