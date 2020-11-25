@@ -53,9 +53,9 @@
         justify-content: space-between;
     }
 
-
     #product_card #product_image {
-        width: 100%;
+        width: fit-content;
+        height: fit-content;
     }
 
 }
