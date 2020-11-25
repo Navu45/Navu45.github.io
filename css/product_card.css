@@ -5,6 +5,10 @@
     justify-content: space-evenly;
 }
 
+#price {
+    font-size: 1rem;
+}
+
 #product_card > img {
     width: 70%;
 }
