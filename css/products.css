@@ -43,6 +43,7 @@
 
 #product_card #product_image {
     width: 8.5rem;
+    height: 6.5rem;
 }
 
 @media screen and (max-device-width: 1080px){
