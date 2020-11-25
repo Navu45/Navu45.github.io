@@ -38,6 +38,7 @@
     #product_card {
         flex-direction: column;
         align-self: baseline;
+        font-size: 10rem;
     }
 
 
