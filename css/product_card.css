@@ -22,13 +22,6 @@
     width: 30%;
 }
 
-#product_card #description div {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
 #kbju {
     font-size: 0.75rem;
 }
@@ -53,6 +46,13 @@
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    #product_card #description div {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
 
