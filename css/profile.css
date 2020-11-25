@@ -5,14 +5,14 @@
     height: 16rem;
     border: 3px solid #919191;
     border-radius: 1rem;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 
 #additional_inf {
     color: white;
     width: 40%;
     height: 16rem;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
     border-left: 5px solid #ff5858;
 }
 
@@ -28,7 +28,6 @@
     height: 5rem;
 }
 
-
 #description div {
     margin-left: 5%;
 }
@@ -37,9 +36,9 @@
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
-    flex-flow: row wrap;
-    align-items: stretch;
+    align-items: center;
     padding: 0;
 }
 
@@ -51,7 +50,7 @@ strong {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     width: 100%;
     height: 33%;
     margin: 0;
@@ -69,20 +68,29 @@ strong {
     background-color: #268841;
 }
 
-@media screen and (max-device-width: 1080px), (max-width: 1080px){
+@media screen and (max-device-width: 1080px), (max-width: 768px){
     #profile_settings {
-        flex-flow: column nowrap;
-        align-items: baseline;
+        align-self: center;
+        width: fit-content;
+        flex-direction: column;
+        align-items: center;
         height: 100%;
-        margin-left: 5%;
+        font-size: 0.6rem;
     }
 
     #user_settings {
-        width: 70%;
+        width: 80%;
+        height: 10rem;
     }
 
     #additional_inf {
-        width: 73%;
+        width: 80%;
         margin-top: 5%;
+        font-size: 0.5rem;
+        height: 10rem;
+    }
+
+    strong {
+        font-size: 0.75rem;
     }
 }
