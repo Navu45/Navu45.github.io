@@ -77,7 +77,7 @@ let openProductCard = function () {
 
     let i = urlParams.get("product_line_id")
     let j = urlParams.get("product_name_id")
-    
-    setProductCard(document.getElementById("product_card"),
-         subsection[i][j], i, j, true)
+
+    let product_card = document.getElementById("products_content").querySelector("#product_card")
+    setProductCard(product_card, subsection[i][j], i, j, true)
 }
