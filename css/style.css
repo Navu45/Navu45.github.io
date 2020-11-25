@@ -3,33 +3,27 @@
  * General styles
  _____________________________________________________________
  */
-@media screen and (min-device-width: 1080px) {
-    @media screen and (max-width: 720px) {
-        html {
-            font-size: 24px;
-        }
 
-        .button {
-            font-size: 0.5rem;
-        }
-    }
-
-    @media screen and (min-width: 721px) {
-        html {
-            font-size: 32px;
-        }
-
-        .button {
-            font-size: 1rem;
-        }
-    }
-}
-
-@media screen and (max-device-width: 1080px){
+@media screen and (max-width: 768px) {
     html {
-        font-size: 64px;
+        font-size: 24px;
+    }
+
+    .button {
+        font-size: 0.5rem;
     }
 }
+
+@media screen and (min-width: 769px) {
+    html {
+        font-size: 32px;
+    }
+
+    .button {
+        font-size: 1rem;
+    }
+}
+
 
 .wrapper {
     flex: 1 0 auto;
@@ -249,55 +243,53 @@ li, .list_item {
     font-size: 0.67rem;
 }
 
-@media screen and (min-device-width: 1080px){
-    @media screen and (max-width: 720px) {
-        footer {
-            flex-direction: column;
-            justify-content: flex-start;
-            padding-top: 0.42rem;
-        }
-
-        #payment_icons, #social_media {
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            margin-top: 0.42rem;
-            margin-left: -0.5rem;
-        }
-
-        .footer_layout {
-            flex-direction: column;
-            align-items: center;
-        }
+@media screen and (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0.42rem;
     }
 
-    @media screen and (min-width: 1080px) {
-        footer {
-            justify-content: space-between;
-        }
+    #payment_icons, #social_media {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 0.42rem;
+        margin-left: -0.5rem;
+    }
 
-        .checkbox_title > object {
-            display: none;
-        }
+    .footer_layout {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
-        #footer_menu ~ .checkbox_title {
-            pointer-events: none;
-        }
+@media screen and (min-width: 769px) {
+    footer {
+        justify-content: space-between;
+    }
 
-        #footer_menu {
-            display: block;
-        }
+    .checkbox_title > object {
+        display: none;
+    }
 
-        #payment_icons, #social_media {
-            display: flex;
-            margin-top: 0.42rem;
-            justify-content: flex-start;
-        }
+    #footer_menu ~ .checkbox_title {
+        pointer-events: none;
+    }
 
-        .footer_layout {
-            flex-direction: column;
-            align-items: center;
-        }
+    #footer_menu {
+        display: block;
+    }
+
+    #payment_icons, #social_media {
+        display: flex;
+        margin-top: 0.42rem;
+        justify-content: flex-start;
+    }
+
+    .footer_layout {
+        flex-direction: column;
+        align-items: center;
     }
 }
 
