@@ -1,0 +1,41 @@
+#product_card {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+
+
+#desciption {
+    margin-left: 2rem;
+}
+
+#product_card div > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#kbju {
+    font-size: 0.75rem;
+}
+
+#desciption img {
+    width: 2rem;
+    height: 2rem;
+}
+
+@media screen and (max-device-width: 1080px), (max-width: 768px){
+    #product_card {
+        flex-direction: column;
+    }
+
+
+    #product_card #product_image {
+        width: fit-content;
+    }
+
+    #desciption img {
+        width: fit-content;
+        height: fit-content;
+    }
+}

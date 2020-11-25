@@ -5,7 +5,8 @@
     <title></title>
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/products.css" type="text/css">
+    <link rel="stylesheet" href="css/product_card.css" type="text/css">
+    <script src="js/app.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -24,17 +25,17 @@
         </nav>
     </header>
     <main id="main">
-        <p class="page_title">Меню</p>
+        <p class="page_title"></p>
         <section id="products_content" class="content_layout content">
-            <p id="product_line_name">Торты</p>
-            <div id="product_line">
-                <div id="product_card">
-                    <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник">
-                    <p id="product_name">Сметанник</p>
-                    <div>
-                        <p id="price">250 ₽</p>
-                        <a href="basket.html"><img src="img/icons/icon-shopping-cart.svg" alt=""></a>
-                    </div>
+            <div id="product_card">
+                <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="">
+                <div id="desciption">
+                <p id="product_name"></p>
+                <p id="kbju"></p>
+                <div>
+                    <p id="price"></p>
+                    <img src="img/icons/icon-shopping-cart.svg" alt="">
+                </div>
                 </div>
             </div>
         </section>
@@ -74,7 +75,9 @@
         </div>
     </div>
 </div>
+<script>
+    openProductCard()
+</script>
 
-<script src="js/app.js"></script>
 </body>
 </html>
