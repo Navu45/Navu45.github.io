@@ -64,10 +64,13 @@ strong {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 @media screen and (max-device-width: 1080px){
     #profile_settings {
         flex-flow: column nowrap;
     }
 }
+=======
+>>>>>>> develop
 =======
 >>>>>>> develop
