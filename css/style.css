@@ -3,7 +3,7 @@
  * General styles
  _____________________________________________________________
  */
-@media screen and (min-device-width: 769px) {
+@media screen and (min-device-width: 1080px) {
     @media screen and (max-width: 720px) {
         html {
             font-size: 24px;
@@ -25,7 +25,7 @@
     }
 }
 
-@media screen and (max-device-width: 768px){
+@media screen and (max-device-width: 1080px){
     html {
         font-size: 64px;
     }
@@ -249,7 +249,7 @@ li, .list_item {
     font-size: 0.67rem;
 }
 
-@media screen and (min-device-width: 768px){
+@media screen and (min-device-width: 1080px){
     @media screen and (max-width: 720px) {
         footer {
             flex-direction: column;
@@ -301,7 +301,7 @@ li, .list_item {
     }
 }
 
-@media screen and (max-device-width: 768px){
+@media screen and (max-device-width: 1080px){
     footer {
         flex-direction: column;
         justify-content: flex-start;
