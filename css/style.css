@@ -143,10 +143,6 @@ li, .list_item {
     position: absolute;
 }
 
-.checkbox:checked ~ .checkbox_title > object {
-    transition: all 0.25s ease-in-out;
-}
-
 .checkbox:checked ~ .drop_down_list {
     display: block;
 }

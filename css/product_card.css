@@ -73,7 +73,7 @@
     }
 
     #description {
-        width: fit-content;
+        width: max-content;
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
