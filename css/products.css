@@ -1,0 +1,53 @@
+#products_content > p {
+    align-self: center;
+    margin-left: 5%;
+}
+
+#product_line {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+    flex-flow: row wrap;
+    align-content: baseline;
+    justify-content: flex-start;
+    font-family: "Noto Sans";
+}
+
+#products_content {
+    padding-left: 8%;
+}
+
+#product_line_name {
+    font-size: 1rem;
+}
+
+#product_name {
+    font-family: "Yanone Kaffeesatz";
+    font-size: 1rem;
+}
+
+#product_card {
+    width: min-content;
+    text-decoration: none;
+    color: black;
+    margin-left: 5%;
+}
+
+#product_card div {
+    width: 7.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#product_image {
+    width: 8.5rem;
+    height: 6.5rem;
+}
+
+@media screen and (max-device-width: 1080px){
+    #product_image {
+        width: fit-content;
+    }
+}
