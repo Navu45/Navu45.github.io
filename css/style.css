@@ -24,14 +24,24 @@
             font-size: 1rem;
         }
     }
+
+    .content {
+        padding-left: 13%;
+        padding-right: 13%;
+    }
 }
 
 @media screen and (max-device-width: 1079px){
     html {
         font-size: 64px;
     }
-}
 
+
+    .content {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
 
 
 .wrapper {
@@ -71,10 +81,6 @@ main {
     margin-bottom: 3rem;
 }
 
-.content {
-    padding-left: 13%;
-    padding-right: 13%;
-}
 
 .image {
     max-height: fit-content;
