@@ -68,7 +68,6 @@ let fill_content = function () {
 
 
 let openProductCard = function () {
-    let section = getSection();
     let subsection = getSubsection();
 
     const urlParams = new URLSearchParams(window.location.search);
