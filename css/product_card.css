@@ -3,6 +3,7 @@
     display: flex;
     align-self: center;
     justify-content: space-evenly;
+    margin-left: 5%;
 }
 
 #price {
@@ -10,16 +11,12 @@
 }
 
 #product_card > img {
-    width: 90%;
+    width: 80%;
 }
 
 #product_name {
     font-family: "Yanone Kaffeesatz";
     font-size: 1.5rem;
-}
-
-#description {
-    width: 30%;
 }
 
 #kbju {
@@ -42,7 +39,6 @@
     }
 
     #description {
-        width: 100%;
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
@@ -73,7 +69,6 @@
     }
 
     #description {
-        width: max-content;
         margin-left: 5%;
         padding-left: 5%;
         padding-right: 5%;
