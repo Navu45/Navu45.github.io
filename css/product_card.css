@@ -71,13 +71,10 @@
         width: 100%;
     }
 
-    #products_content {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
     #description {
         width: fit-content;
         margin-left: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
