@@ -15,7 +15,7 @@ let getSubsection = function () {
         ],
         [
             {name: "Эклеры с заварным кремом", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
-            {name: "Кексы с клубникой", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"}
+            {name: "Кексы с клубникой", img_url: "img/menu/cupcakes.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"}
         ],
         [
             {name: "Апельсиновый сок", img_url: "img/menu/orange-juice.jpg", price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
@@ -68,7 +68,6 @@ let fill_content = function () {
 
 
 let openProductCard = function () {
-    let section = getSection();
     let subsection = getSubsection();
 
     const urlParams = new URLSearchParams(window.location.search);
