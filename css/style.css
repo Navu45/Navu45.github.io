@@ -14,9 +14,9 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
     html {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .button {
@@ -24,25 +24,9 @@
     }
 }
 
-
-@media screen and (max-width: 360px) {
-
-    html {
-        font-size: 16px;
-    }
-
-    .button {
-        font-size: 0.5rem;
-    }
-}
-
 .content {
     padding-left: 7%;
     padding-right: 7%;
-}
-
-.wrapper {
-    flex: 1 0 auto;
 }
 
 p {
@@ -242,6 +226,7 @@ li, .list_item {
  */
 .footer_layout {
     display: flex;
+    flex: 0 0 auto;
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
@@ -269,13 +254,6 @@ li, .list_item {
     .footer_layout {
         flex-direction: column;
         align-items: center;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    footer img{
-        width: 1rem;
-        height: 1rem;
     }
 }
 
