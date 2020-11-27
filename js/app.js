@@ -81,15 +81,15 @@ let openProductCard = function () {
     setProductCard(product_card, subsection[i][j], i, j, true, true)
 }
 
-let addProduct = function(key, value) {
+let addProduct = function(value) {
     let list = ["temp"];
 
     if (localStorage.length !== 0)
-        list = JSON.parse(localStorage.getItem(key))
+        list = JSON.parse(localStorage.getItem("product"))
     if (list.indexOf(value) === -1)
         list.push(value)
     if (localStorage.length === 0) list.shift()
-    localStorage.setItem(key, JSON.stringify(list))
+    localStorage.setItem("product", JSON.stringify(list))
 }
 
 let addToBasket = function (shoppingCartImg) {
@@ -100,7 +100,7 @@ let addToBasket = function (shoppingCartImg) {
     selectBasket.innerHTML = "Перейти в корзину";
     let description = document.getElementById("description");
     description.append(selectBasket);
-    addProduct("product", window.location.search);
+    addProduct(window.location.search);
 }
 
 let fill_basket = function () {
@@ -118,7 +118,11 @@ let fill_basket = function () {
         let i = urlParams.get("product_line_id");
         let j = urlParams.get("product_name_id");
         setProductCard(product_card, subsection[i][j], i, j, false, false);
-        product_card.querySelector("#quantity").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("a").setAttribute("href", "product_card.html?product_line_id=" + i
+            + "&product_name_id=" + j);
+        product_card.querySelector("#plus").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("#minus").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("#cancel").setAttribute("alt", subsection[i][j].price)
         chosen_products.append(product_card)
         product_card = product_card.cloneNode(true);
         sum += Number(subsection[i][j].price);
@@ -139,14 +143,52 @@ let clearBasket = function () {
     location.reload()
 }
 
-let plus = function () {
-    
+let plus = function (plus_img) {
+    let span = plus_img.parentElement.parentElement.querySelector("span");
+    let num = document.getElementById("num").innerText;
+    num = +/\d+/.exec(num);
+    num++;
+    document.getElementById("num").innerText = "Кол-во:  " + num;
+    num = Number(span.innerText) + 1;
+    span.innerText = num
 }
 
-let minus = function () {
-
+let minus = function (minus_img) {
+    let span = minus_img.parentElement.querySelector("span");
+    let num1 = document.getElementById("num").innerText;
+    let num2 = span.innerText;
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
+    num1 = +/\d+/.exec(num1);
+    if (num1 !== 1 && Number(num2) !== 1) {
+        num1--;
+        num2 = Number(num2) - 1;
+        document.getElementById("num").innerText = "Кол-во:  " + num1;
+        document.getElementById("sum").innerText = "Итого:   " + sum
+        span.innerText = num2
+    }
 }
 
-let cancel = function () {
+let cancel = function (cancel_img) {
+    let price = Number(cancel_img.getAttribute("alt"));
+    let sum = +/\d+/.exec(document.getElementById("sum").innerHTML);
+    let num = +/\d+/.exec(document.getElementById("num").innerHTML);
+    let temp = Number(cancel_img.parentElement.querySelector("span").innerHTML);
 
+    document.getElementById("sum").innerText = "Итого:   " + (sum - price * temp);
+    document.getElementById("num").innerText = "Кол-во:  " + (num - temp);
+
+    temp = cancel_img.parentElement.previousElementSibling.
+    getAttribute("href").replace("product_card.html", "")
+
+    let list = JSON.parse(localStorage.getItem("product"))
+
+    for (let i = 0; i < list.length; i++) {
+        if (list[i] === temp) {
+            list.splice(i, 1);
+        }
+    }
+
+    localStorage.setItem("product", JSON.stringify(list))
+    cancel_img.parentElement.parentElement.remove()
 }
