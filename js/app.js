@@ -46,7 +46,7 @@ let fill_content = function () {
     let product_line;
     let product_card;
 
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i < 3; i++) {
         product_card =  product_card_temp.cloneNode(true)
         setProductCard(product_card, subsection[0][i], 0, i, false)
         product_line_temp.append(product_card)
@@ -66,13 +66,11 @@ let fill_content = function () {
     }
 }
 
-
 let openProductCard = function () {
     let subsection = getSubsection();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('product_name');
-    document.getElementsByTagName("title").innerHtml = name;
+    document.getElementsByTagName("title").innerHtml = urlParams.get('product_name');
 
     let i = urlParams.get("product_line_id")
     let j = urlParams.get("product_name_id")

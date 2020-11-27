@@ -1,6 +1,5 @@
 #products_content > p {
     align-self: center;
-    margin-left: 5%;
 }
 
 #product_line {
@@ -12,11 +11,6 @@
     justify-content: flex-start;
     font-family: "Noto Sans";
 }
-
-#products_content {
-    padding-left: 8%;
-}
-
 #product_line_name {
     font-size: 1rem;
 }
@@ -40,10 +34,11 @@
     justify-content: space-between;
 }
 
-
 #product_image {
+    min-width: 8.5rem;
     width: 8.5rem;
     height: 6.5rem;
+    min-height: 6.5rem;
 }
 
 @media screen and (max-device-width: 1080px){

@@ -12,7 +12,7 @@
 }
 
 #product_image {
-    width: 90%;
+    width: 70%;
 }
 
 #price {
@@ -32,7 +32,6 @@
     width: 2rem;
     height: 2rem;
 }
-
 @media screen and (max-width: 1080px){
     #product_card {
         flex-direction: column;
@@ -46,12 +45,21 @@
         padding-left: 5%;
         padding-right: 5%;
     }
+
 }
 
 @media screen and (max-device-width: 1080px){
     #product_card {
         flex-direction: column;
         align-self: center;
+    }
+
+    #description {
+        width: 40%;
+        justify-content: flex-start;
+        margin-left: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
     }
 
     #description img {

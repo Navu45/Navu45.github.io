@@ -59,7 +59,7 @@ main {
 
 @media screen and (max-width: 360px){
     .offer > p {
-        font-size: 0.4rem;
+        font-size: 0.5rem;
     }
 
     #products {
@@ -69,7 +69,7 @@ main {
 
 @media screen and (min-width: 361px) and (max-width: 1079px){
     .offer > p {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     #products {

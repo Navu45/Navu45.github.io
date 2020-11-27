@@ -5,6 +5,11 @@
     <title>Моя корзина</title>
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/basket.css" type="text/css">
+    <meta name='viewport' content='width=device-width,initial-scale=1'/>
+    <meta content='true' name='HandheldFriendly'/>
+    <meta content='width' name='MobileOptimized'/>
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
 </head>
 <body>
 <div class="wrapper">
@@ -25,11 +30,25 @@
 
     <main id="main">
         <p class="page_title">Моя корзина</p>
-        <section id="basket" class="content_layout content">
+        <section id="basket" class="content_layout">
+            <div class="chosen_products">
+                <div id="product_card">
+                    <a href="product_card.html?product_line_id=0&product_name_id=0" ><img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник"></a>
+                    <div>
+                        <p id="product_name">Сметанник</p>
+                        <p>Кол-во: <img src="img/icons/add_circle.svg" alt=""> <strong>1</strong> <img src="img/icons/remove_circle.svg" alt=""></p>
+                        <label>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="ordering">
+                <a class="button">Оформить заказ</a>
+            </div>
         </section>
     </main>
 </div>
-
 <div class="footer_layout">
     <div>
         <footer>
