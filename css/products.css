@@ -37,12 +37,12 @@
 #product_image {
     width: 8.5rem;
     height: 6.5rem;
-    max-width: 95%;
     max-height: 6.5rem;
 }
 
 @media screen and (max-width: 768px){
     #product_image {
+        width: 95%;
         height: initial;
     }
 }
