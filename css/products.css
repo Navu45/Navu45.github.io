@@ -21,7 +21,7 @@
 }
 
 #product_card {
-    width: min-content;
+    width: fit-content;
     text-decoration: none;
     color: black;
     margin-left: 5%;
@@ -35,8 +35,14 @@
 }
 
 #product_image {
-    min-width: 8.5rem;
     width: 8.5rem;
     height: 6.5rem;
-    min-height: 6.5rem;
+    max-width: 95%;
+    max-height: 6.5rem;
+}
+
+@media screen and (max-width: 768px){
+    #product_image {
+        height: initial;
+    }
 }
