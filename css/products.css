@@ -7,7 +7,6 @@
     width: 100%;
     height: fit-content;
     flex-flow: row wrap;
-    align-content: baseline;
     justify-content: flex-start;
     font-family: "Noto Sans";
 }
@@ -40,9 +39,19 @@
     max-height: 6.5rem;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 560px) and (orientation: portrait){
     #product_image {
-        width: 95%;
         height: initial;
+    }
+}
+
+@media screen and (max-width: 560px) and (orientation: portrait){
+    #product_card {
+        margin: 0;
+    }
+
+    #product_line {
+        flex-flow: column nowrap;
+        align-items: center;
     }
 }

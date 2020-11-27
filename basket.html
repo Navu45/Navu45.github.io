@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <header class="header_layout">
+<header class="header_layout">
         <a class="page_title" href="index.html">SWEET SHOP</a>
         <input id="toggle_btn" class="checkbox" type="checkbox"/>
         <label id="checkbox_btn" class="is_clickable" for="toggle_btn">
@@ -33,18 +33,35 @@
         <section id="basket" class="content_layout">
             <div class="chosen_products">
                 <div id="product_card">
-                    <a href="product_card.html?product_line_id=0&product_name_id=0" ><img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник"></a>
-                    <div>
+                    <a href="product_card.html?product_line_id=0&product_name_id=0" >
+                        <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник">
+                    </a>
+                    <div id="description">
                         <p id="product_name">Сметанник</p>
-                        <p>Кол-во: <img src="img/icons/add_circle.svg" alt=""> <strong>1</strong> <img src="img/icons/remove_circle.svg" alt=""></p>
+                        <div>
+                            <div id="quantity">
+                                <p>Кол-во:</p>
+                                <div>
+                                    <img src="img/icons/add_circle.svg" alt="">
+                                    <span>1</span>
+                                    <img src="img/icons/remove_circle.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
                         <label>
                             <input type="checkbox">
                         </label>
                     </div>
                 </div>
             </div>
+        </section>
+        <section class="content_layout">
             <div id="ordering">
-                <a class="button">Оформить заказ</a>
+                <div>
+                    <p id="num">Кол-во:</p>
+                    <p id="sum">Итого:</p>
+                </div>
+                <a class="button is_clickable">Оформить заказ</a>
             </div>
         </section>
     </main>
@@ -82,4 +99,9 @@
     </div>
 </div>
 </body>
+<script>
+    window.addEventListener('scroll', function() {
+
+    });
+</script>
 </html>

@@ -71,10 +71,10 @@ strong {
     background-color: #268841;
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
     #profile_settings {
         align-self: center;
-        width: fit-content;
+        width: 80%;
         flex-direction: column;
         align-items: center;
         height: 100%;
@@ -83,7 +83,7 @@ strong {
 
     #user_settings {
         width: 80%;
-        height: 10rem;
+        height: fit-content;
     }
 
     #additional_inf {
@@ -95,5 +95,18 @@ strong {
 
     strong {
         font-size: 0.75rem;
+    }
+
+    #description img {
+        padding-left: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    #description {
+        padding-top: 5%;
+        flex-direction: column;
     }
 }

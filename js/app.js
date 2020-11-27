@@ -78,3 +78,7 @@ let openProductCard = function () {
     let product_card = document.getElementById("products_content").querySelector("#product_card")
     setProductCard(product_card, subsection[i][j], i, j, true)
 }
+
+let addToBasket = function (shoppingCartImg) {
+    shoppingCartImg
+}
