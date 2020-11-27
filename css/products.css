@@ -40,9 +40,3 @@
     height: 6.5rem;
     min-height: 6.5rem;
 }
-
-@media screen and (max-device-width: 1080px){
-    #product_image {
-        width: fit-content;
-    }
-}

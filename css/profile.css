@@ -71,7 +71,7 @@ strong {
     background-color: #268841;
 }
 
-@media screen and (max-device-width: 1080px), (max-width: 768px){
+@media screen and (max-width: 768px){
     #profile_settings {
         align-self: center;
         width: fit-content;
