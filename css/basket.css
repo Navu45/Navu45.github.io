@@ -1,81 +1,106 @@
+
+#basket {
+}
+
 .chosen_products {
-    width: 100%;
+    width: 70%;
 }
 
 #product_card {
     display: flex;
+    width: 100%;
     justify-content: center;
 }
 
 #description {
-    margin-left: 5%;
-}
-
-#description > p,
-#description > div {
-    margin-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+    padding-top: 0.3rem;
 }
 
 #product_card a {
-    display: block;
     width: 40%;
 }
 
 #product_image {
     width: 100%;
-}
-
-#product_card span {
-    font-size: 0.75rem;
+    height: 100%;
 }
 
 #quantity {
-    width: 100%;
+    font-size: 0.8rem;
 }
 
-#quantity, #quantity div {
-    display: flex;
-    align-items: flex-start;
+#quantity, #product_name {
+    margin: 0 0 5% 0;
 }
 
 #quantity div {
+    width: 60%;
     display: flex;
-    justify-content: space-evenly;
-    width: 30%;
+    align-items: center;
+    justify-content: space-between;
 }
 
-#quantity p, #product_name {
-    margin: 0;
+#quantity img {
+    width: 0.8rem;
+    height: 0.8rem;
 }
 
-#product_card input {
-    width: 0.75rem;
-    height: 0.75rem;
+#description input, #description label {
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-top: 5%;
+}
+
+#ordering_layout {
+    width: 100%;
 }
 
 #ordering {
-    bottom: 5%;
+    display: flex;
+    width: 50%;
+    flex-direction: column;
 }
 
-#products_content > p {
-    align-self: center;
+#ordering div {
+    align-self: flex-start;
 }
 
+#ordering .button {
+    align-self: flex-end;
+}
 
-@media screen and (max-width: 768px) {
-    #product_card p,span{
-        font-size: 0.5rem;
+@media screen and (max-width: 767px){
+
+    #product_name {
+        font-size: 0.8rem;
     }
 
-    #product_image {
-        width: 5rem;
-    }
-
-    #quantity {
-        flex-direction: column;
+    .chosen_products {
+        width: 100%;
     }
 
     #description {
+        font-size: 0.5rem;
         margin-left: 5%;
+    }
+
+    #quantity div{
+        width: 80%;
+    }
+
+    #quantity {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #product_card a {
+        width: 50%;
+    }
+
+    #ordering {
+        width: 80%;
     }
 }

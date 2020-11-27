@@ -80,7 +80,7 @@ ul {
 .button {
     font-family: "Yanone Kaffeesatz";
     background-color: #ff5858;
-    width: fit-content;
+    width: max-content;
     padding: 0.25rem 0.83rem;
     border-radius: 1.25rem;
     border-color: #F57676;

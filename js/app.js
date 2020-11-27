@@ -27,15 +27,15 @@ let getSubsection = function () {
 let setProductCard = function (product_card, info, pl_id, pn_id, totally) {
     product_card.querySelector("#product_name").innerHTML = info.name;
     product_card.querySelector("#product_image").setAttribute("src", info.img_url);
-    product_card.setAttribute("href", "product_card.html?product_line_id=" + pl_id
-        + "&product_name_id=" + pn_id);
     if (totally) {
+        product_card.setAttribute("href", "product_card.html?product_line_id=" + pl_id
+            + "&product_name_id=" + pn_id);
         product_card.querySelector("#kbju").innerHTML = info.kjbu;
         product_card.querySelector("#price").innerHTML = info.price;
     }
 }
 
-let fill_content = function () {
+let fill_menu = function () {
     let section = getSection();
     let subsection = getSubsection();
 
@@ -70,15 +70,26 @@ let openProductCard = function () {
     let subsection = getSubsection();
 
     const urlParams = new URLSearchParams(window.location.search);
-    document.getElementsByTagName("title").innerHtml = urlParams.get('product_name');
 
     let i = urlParams.get("product_line_id")
     let j = urlParams.get("product_name_id")
+
+    document.title = subsection[i][j].name;
 
     let product_card = document.getElementById("products_content").querySelector("#product_card")
     setProductCard(product_card, subsection[i][j], i, j, true)
 }
 
 let addToBasket = function (shoppingCartImg) {
-    shoppingCartImg
+    if (shoppingCartImg.getAttribute("src") === "img/icons/added.svg") return;
+    shoppingCartImg.setAttribute("src", "img/icons/added.svg");
+    let selectBasket = document.createElement("a");
+    selectBasket.setAttribute("href", "basket.html");
+    selectBasket.innerHTML = "Перейти в корзину";
+    document.getElementById("description").append(selectBasket);
+    localStorage.setItem("product", window.location);
+}
+
+let fill_basket = function () {
+    
 }

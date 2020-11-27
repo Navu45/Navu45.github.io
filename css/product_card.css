@@ -5,6 +5,16 @@
     justify-content: space-evenly;
 }
 
+#description a {
+    color: black;
+    font-size: 0.8rem;
+    font-family: "Yanone Kaffeesatz";
+}
+
+#description {
+    width: 20%;
+}
+
 #description div {
     display: flex;
     align-items: center;
@@ -35,27 +45,11 @@
 @media screen and (max-width: 1080px){
     #product_card {
         flex-direction: column;
-        align-self: baseline;
-    }
-
-    #description {
-        width: 40%;
-        justify-content: flex-start;
-        margin-left: 5%;
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-}
-
-@media screen and (max-device-width: 1080px){
-    #product_card {
-        flex-direction: column;
         align-self: center;
     }
 
     #description {
-        width: 40%;
+        width: 60%;
         justify-content: flex-start;
         margin-left: 5%;
         padding-left: 5%;
@@ -64,14 +58,15 @@
 
     #description img {
         margin-left: 1rem;
-        width: 3rem;
-        height: 3rem;
+        width: 2rem;
+        height: 2rem;
     }
 
     #description {
         justify-content: flex-start;
         margin-left: 5%;
-        padding-left: 5%;
+        padding-left: 12%;
         padding-right: 5%;
     }
+
 }
