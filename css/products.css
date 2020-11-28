@@ -1,5 +1,10 @@
-html {
-    height: initial;
+#images {
+    position: absolute;
+    display: none;
+}
+
+.wrapper > main {
+    height: max-content;
 }
 
 #products_content > a {

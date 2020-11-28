@@ -86,13 +86,6 @@ main {
     align-self: flex-end;
 }
 
-
-@media screen and (min-height: 400px){
-    html {
-        height: initial;
-    }
-}
-
 @media screen and (max-width: 767px){
 
     #product_name,

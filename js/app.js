@@ -204,3 +204,11 @@ let cancel = function (cancel_img) {
         localStorage.setItem("product", JSON.stringify(list))
     cancel_img.parentElement.parentElement.remove()
 }
+
+let setFooter = function () {
+    let content_height = document.querySelector("main").clientHeight;
+    let window_height =  window.innerHeight;
+    if (content_height >= window_height) {
+        document.querySelector(".wrapper").style.height = "initial";
+    }
+}
