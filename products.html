@@ -6,40 +6,64 @@
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/products.css" type="text/css">
-    <meta name='viewport' content='width=device-width,initial-scale=1'/>
+    <meta name='viewport' content='width=device-width'/>
     <meta content='true' name='HandheldFriendly'/>
     <meta content='width' name='MobileOptimized'/>
     <meta content='yes' name='apple-mobile-web-app-capable'/>
+    <link rel="preload" href="img/menu/apple-cider.jpg" as="image">
+    <link rel="preload" href="img/menu/cheese-cakes.jpg" as="image">
+    <link rel="preload" href="img/menu/chocolate-cheesecake.jpg" as="image">
+    <link rel="preload" href="img/menu/cream-cake.jpg" as="image">
+    <link rel="preload" href="img/menu/cupcakes.jpg" as="image">
+    <link rel="preload" href="img/menu/eclairs.jpg" as="image">
+    <link rel="preload" href="img/menu/fruit-cheesecake.jpg" as="image">
+    <link rel="preload" href="img/menu/orange-juice.jpg" as="image">
+    <link rel="preload" href="img/menu/praga-cake.jpg" as="image">
+    <link rel="preload" href="img/menu/three-chocolate-cake.jpg" as="image">
+
     <script src="js/app.js"></script>
 </head>
 <body>
-<header class="header_layout">
-    <a class="page_title" href="index.html">SWEET SHOP</a>
-    <input id="toggle_btn" class="checkbox" type="checkbox"/>
-    <label id="checkbox_btn" class="is_clickable" for="toggle_btn">
-        <span id="bar1"></span>
-        <span id="bar2"></span>
-        <span id="bar3"></span>
-    </label>
-    <nav id="header_menu" class="drop_down_list">
-        <a class="list_item" href="products.html">Меню</a>
-        <a class="list_item" href="basket.html">Моя корзина</a>
-        <a class="list_item" href="profile.html">Мой профиль</a>
-    </nav>
-</header>
-<main id="main">
-    <p class="page_title">Меню</p>
-    <section id="products_content" class="content_layout">
-        <a id="product_line_name" href="#cakes">Торты</a>
-        <div id="product_line">
-            <a href="product_card.html?product_line_id=0&product_name_id=0" id="product_card" class="is_clickable">
-                <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник">
-                <p id="product_name">Сметанник</p>
-            </a>
-        </div>
-    </section>
-</main>
-
+<div id="images">
+    <img src="img/menu/apple-cider.jpg" alt="">
+    <img src="img/menu/cheese-cakes.jpg" alt="">
+    <img src="img/menu/chocolate-cheesecake.jpg" alt="">
+    <img src="img/menu/cream-cake.jpg" alt="">
+    <img src="img/menu/cupcakes.jpg" alt="">
+    <img src="img/menu/eclairs.jpg" alt="">
+    <img src="img/menu/fruit-cheesecake.jpg" alt="">
+    <img src="img/menu/orange-juice.jpg" alt="">
+    <img src="img/menu/praga-cake.jpg" alt="">
+    <img src="img/menu/three-chocolate-cake.jpg" alt="">
+</div>
+<div class="wrapper">
+    <header class="header_layout">
+        <a class="page_title" href="index.html">SWEET SHOP</a>
+        <input id="toggle_btn" class="checkbox" type="checkbox"/>
+        <label id="checkbox_btn" class="is_clickable" for="toggle_btn">
+            <span id="bar1"></span>
+            <span id="bar2"></span>
+            <span id="bar3"></span>
+        </label>
+        <nav id="header_menu" class="drop_down_list">
+            <a class="list_item" href="products.html">Меню</a>
+            <a class="list_item" href="basket.html">Моя корзина</a>
+            <a class="list_item" href="profile.html">Мой профиль</a>
+        </nav>
+    </header>
+    <main id="main">
+        <p class="page_title">Меню</p>
+        <section id="products_content" class="content_layout">
+            <a id="product_line_name" href="#cakes">Торты</a>
+            <div id="product_line">
+                <a href="product_card.html?product_line_id=0&product_name_id=0" id="product_card" class="is_clickable">
+                    <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="Сметанник">
+                    <p id="product_name">Сметанник</p>
+                </a>
+            </div>
+        </section>
+    </main>
+</div>
 <div class="footer_layout">
     <div>
         <footer>
@@ -74,6 +98,7 @@
 </div>
 <script>
     fill_menu()
+    setFooter()
 </script>
 </body>
 </html>
