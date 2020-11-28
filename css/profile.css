@@ -53,8 +53,7 @@ strong {
 #additional_inf > p {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: space-evenly;
     height: 33%;
     margin: 0;
 }
