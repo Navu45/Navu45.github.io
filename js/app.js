@@ -140,7 +140,9 @@ let clearBasket = function () {
         alert("Вы ничего не выбрали. Зайдите в Меню и добавьте товар в корзину, чтобы оформить заказ.")
         return;
     }
-    alert("Спасибо за покупку, заказ №000000 ожидает вас в месте доставки!")
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
+    alert("Спасибо за покупку, заказ №000000 на сумму " + sum + " ₽ ожидает вас в месте доставки!")
     localStorage.clear()
     location.reload()
 }
