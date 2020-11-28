@@ -1,5 +1,10 @@
-#products_content > p {
+#products_content > a {
     align-self: center;
+    text-decoration: none;
+    cursor: default;
+    color: black;
+    font-family: "Noto Sans";
+    margin-bottom: 1rem;
 }
 
 #product_line {
@@ -10,6 +15,11 @@
     justify-content: flex-start;
     font-family: "Noto Sans";
 }
+
+#product_line > a{
+    cursor: pointer;
+}
+
 #product_line_name {
     font-size: 1rem;
 }

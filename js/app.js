@@ -5,21 +5,21 @@ let getSection = function () {
 let getSubsection = function () {
     return [
         [
-            {name: "Сметанник", img_url: "img/menu/cream-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"},
-            {name: "Три шоколада", img_url: "img/menu/three-chocolate-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"},
-            {name: "Прага", img_url: "img/menu/praga-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"}
+            {name: "Сметанник", img_url: "img/menu/cream-cake.jpg",  price: 950, kjbu: "6.5/7.1/42.2<br>на 100 г"},
+            {name: "Три шоколада", img_url: "img/menu/three-chocolate-cake.jpg",  price: 950, kjbu: "3.9/20.5/38.1<br>на 100 г"},
+            {name: "Прага", img_url: "img/menu/praga-cake.jpg",  price: 950, kjbu: "4.6/26.5/65.1<br>на 100 г"}
         ],
         [
-            {name: "Шоколадный чизкейк", img_url: "img/menu/cream-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"},
-            {name: "Фруктовый чизкейк", img_url: "img/menu/cream-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"}
+            {name: "Шоколадный чизкейк", img_url: "img/menu/chocolate-cheesecake.jpg",  price: 700, kjbu: "4.3/14.6/32<br>на 100 г"},
+            {name: "Фруктовый чизкейк", img_url: "img/menu/fruit-cheesecake.jpg",  price: 700, kjbu: "4.3/14.6/32<br>на 100 г"}
         ],
         [
-            {name: "Эклеры с заварным кремом", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
-            {name: "Кексы с клубникой", img_url: "img/menu/cupcakes.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"}
+            {name: "Эклеры с заварным кремом", img_url: "img/menu/eclairs.jpg",  price: 250, kjbu: "4.81/16.88/44.71<br>на 100 г"},
+            {name: "Кексы с клубникой", img_url: "img/menu/cupcakes.jpg",  price: 250, kjbu: "8.51/15.16/43.82<br>на 100 г"}
         ],
         [
-            {name: "Апельсиновый сок", img_url: "img/menu/orange-juice.jpg", price: 1000, kjbu: "10/10/10<br>на 100 г"},
-            {name: "Яблочный сок", img_url: "img/menu/cream-cake.jpg",  price: 1000, kjbu: "10/10/10<br>на 100 г"}
+            {name: "Апельсиновый сок", img_url: "img/menu/orange-juice.jpg", price: 170, kjbu: "2/0.12/9.76<br>на 100 г"},
+            {name: "Яблочный сок", img_url: "img/menu/apple-cider.jpg",  price: 170, kjbu: "0.1/0.13/11.3<br>на 100 г"}
         ]
     ];
 }
@@ -39,6 +39,7 @@ let setProductCard = function (product_card, info, pl_id, pn_id, totally, price)
 
 let fill_menu = function () {
     let section = getSection();
+    let sectionNames = ["cakes", "cheesecakes", "pastries", "juices"]
     let subsection = getSubsection();
 
     let products_content = document.getElementById("products_content")
@@ -63,6 +64,7 @@ let fill_menu = function () {
         }
         let product_line_name = product_line_name_temp.cloneNode(false)
         product_line_name.innerHTML = section[i];
+        product_line_name.setAttribute("href", "products.html#" + sectionNames[i])
         products_content.append(product_line_name);
         products_content.append(product_line);
     }
@@ -144,16 +146,21 @@ let clearBasket = function () {
 }
 
 let plus = function (plus_img) {
+    let price = Number(plus_img.getAttribute("alt"));
     let span = plus_img.parentElement.parentElement.querySelector("span");
     let num = document.getElementById("num").innerText;
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
     num = +/\d+/.exec(num);
     num++;
     document.getElementById("num").innerText = "Кол-во:  " + num;
+    document.getElementById("sum").innerText = "Итого:   " + (sum + price);
     num = Number(span.innerText) + 1;
     span.innerText = num
 }
 
 let minus = function (minus_img) {
+    let price = Number(minus_img.getAttribute("alt"));
     let span = minus_img.parentElement.querySelector("span");
     let num1 = document.getElementById("num").innerText;
     let num2 = span.innerText;
@@ -164,7 +171,7 @@ let minus = function (minus_img) {
         num1--;
         num2 = Number(num2) - 1;
         document.getElementById("num").innerText = "Кол-во:  " + num1;
-        document.getElementById("sum").innerText = "Итого:   " + sum
+        document.getElementById("sum").innerText = "Итого:   " + (sum - price)
         span.innerText = num2
     }
 }
@@ -189,6 +196,9 @@ let cancel = function (cancel_img) {
         }
     }
 
-    localStorage.setItem("product", JSON.stringify(list))
+    if (list.length === 0)
+        localStorage.clear()
+    else
+        localStorage.setItem("product", JSON.stringify(list))
     cancel_img.parentElement.parentElement.remove()
 }
