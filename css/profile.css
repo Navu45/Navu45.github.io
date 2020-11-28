@@ -1,3 +1,7 @@
+html {
+    height: initial;
+}
+
 #user_settings {
     display: flex;
     flex-direction: column;

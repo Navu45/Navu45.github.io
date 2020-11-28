@@ -1,3 +1,7 @@
+html {
+    height: initial;
+}
+
 #products_content > a {
     align-self: center;
     text-decoration: none;

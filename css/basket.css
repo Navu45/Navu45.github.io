@@ -1,6 +1,11 @@
 
 #basket {
     display: none;
+    height: 100%;
+}
+
+main {
+    height: 100%;
 }
 
 .chosen_products {
@@ -79,6 +84,13 @@
 
 #ordering .button {
     align-self: flex-end;
+}
+
+
+@media screen and (min-height: 400px){
+    html {
+        height: initial;
+    }
 }
 
 @media screen and (max-width: 767px){
