@@ -13,7 +13,6 @@ main {
     position: relative;
     justify-content: flex-start;
     height: 100%;
-    max-height: fit-content;
 }
 
 #offer {
@@ -31,11 +30,12 @@ main {
     padding: 3% 5%;
     position: absolute;
     width: 60%;
-    border-radius: 10px;
+    border-radius: 0.4rem;
     background-color: rgba(72, 131, 168, 0.7);
 }
 
 #products {
+    position: relative;
     color: #315369;
     font-family: "Yanone Kaffeesatz";
 }
@@ -57,19 +57,23 @@ main {
     justify-content: flex-start;
 }
 
+#link > p {
+    width: max-content;
+}
+
 @media screen and (max-width: 360px){
     .offer > p {
-        font-size: 0.4rem;
+        font-size: 0.75rem;
     }
 
     #products {
-        font-size: 0.5rem;
+        font-size: 0.75rem;
     }
 }
 
 @media screen and (min-width: 361px) and (max-width: 1079px){
     .offer > p {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     #products {
@@ -86,4 +90,8 @@ main {
         font-size: 1rem;
     }
 
+}
+
+html {
+    height: initial;
 }

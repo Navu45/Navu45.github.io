@@ -5,38 +5,41 @@ let getSection = function () {
 let getSubsection = function () {
     return [
         [
-            {name: "Сметанник", price: "1000 ₽", img_url: "img/menu/cream-cake.jpg",  kjbu: "10/10/10<br>на 100 г"},
-            {name: "Три шоколада", price: "1000 ₽", img_url: "img/menu/three-chocolate-cake.jpg",  kjbu: "10/10/10<br>на 100 г"},
-            {name: "Прага", price: "1000 ₽", img_url: "img/menu/praga-cake.jpg",  kjbu: "10/10/10<br>на 100 г"}
+            {name: "Сметанник", img_url: "img/menu/cream-cake.jpg",  price: 950, kjbu: "6.5/7.1/42.2<br>на 100 г"},
+            {name: "Три шоколада", img_url: "img/menu/three-chocolate-cake.jpg",  price: 950, kjbu: "3.9/20.5/38.1<br>на 100 г"},
+            {name: "Прага", img_url: "img/menu/praga-cake.jpg",  price: 950, kjbu: "4.6/26.5/65.1<br>на 100 г"}
         ],
         [
-            {name: "Шоколадный чизкейк", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
-            {name: "Фруктовый чизкейк", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"}
+            {name: "Шоколадный чизкейк", img_url: "img/menu/chocolate-cheesecake.jpg",  price: 700, kjbu: "4.3/14.6/32<br>на 100 г"},
+            {name: "Фруктовый чизкейк", img_url: "img/menu/fruit-cheesecake.jpg",  price: 700, kjbu: "4.3/14.6/32<br>на 100 г"}
         ],
         [
-            {name: "Эклеры с заварным кремом", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
-            {name: "Кексы с клубникой", img_url: "img/menu/cupcakes.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"}
+            {name: "Эклеры с заварным кремом", img_url: "img/menu/eclairs.jpg",  price: 250, kjbu: "4.81/16.88/44.71<br>на 100 г"},
+            {name: "Кексы с клубникой", img_url: "img/menu/cupcakes.jpg",  price: 250, kjbu: "8.51/15.16/43.82<br>на 100 г"}
         ],
         [
-            {name: "Апельсиновый сок", img_url: "img/menu/orange-juice.jpg", price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"},
-            {name: "Яблочный сок", img_url: "img/menu/cream-cake.jpg",  price: "1000 ₽", kjbu: "10/10/10<br>на 100 г"}
+            {name: "Апельсиновый сок", img_url: "img/menu/orange-juice.jpg", price: 170, kjbu: "2/0.12/9.76<br>на 100 г"},
+            {name: "Яблочный сок", img_url: "img/menu/apple-cider.jpg",  price: 170, kjbu: "0.1/0.13/11.3<br>на 100 г"}
         ]
     ];
 }
 
-let setProductCard = function (product_card, info, pl_id, pn_id, totally) {
+let setProductCard = function (product_card, info, pl_id, pn_id, totally, price) {
     product_card.querySelector("#product_name").innerHTML = info.name;
     product_card.querySelector("#product_image").setAttribute("src", info.img_url);
     product_card.setAttribute("href", "product_card.html?product_line_id=" + pl_id
         + "&product_name_id=" + pn_id);
     if (totally) {
         product_card.querySelector("#kbju").innerHTML = info.kjbu;
-        product_card.querySelector("#price").innerHTML = info.price;
+    }
+    if (price) {
+        product_card.querySelector("#price").innerHTML = info.price + " ₽";
     }
 }
 
-let fill_content = function () {
+let fill_menu = function () {
     let section = getSection();
+    let sectionNames = ["cakes", "cheesecakes", "pastries", "juices"]
     let subsection = getSubsection();
 
     let products_content = document.getElementById("products_content")
@@ -46,9 +49,9 @@ let fill_content = function () {
     let product_line;
     let product_card;
 
-    for (let i = 1; i <= 2; i++) {
+    for (let i = 1; i < 3; i++) {
         product_card =  product_card_temp.cloneNode(true)
-        setProductCard(product_card, subsection[0][i], 0, i, false)
+        setProductCard(product_card, subsection[0][i], 0, i, false, false)
         product_line_temp.append(product_card)
     }
 
@@ -56,27 +59,148 @@ let fill_content = function () {
         product_line = product_line_temp.cloneNode(false)
         for (let j = 0; j < subsection[i].length; j++) {
             product_card =  product_card_temp.cloneNode(true)
-            setProductCard(product_card, subsection[i][j], i, j,false)
+            setProductCard(product_card, subsection[i][j], i, j,false, false)
             product_line.append(product_card)
         }
         let product_line_name = product_line_name_temp.cloneNode(false)
         product_line_name.innerHTML = section[i];
+        product_line_name.setAttribute("href", "products.html#" + sectionNames[i])
         products_content.append(product_line_name);
         products_content.append(product_line);
     }
 }
 
-
 let openProductCard = function () {
     let subsection = getSubsection();
 
     const urlParams = new URLSearchParams(window.location.search);
-    const name = urlParams.get('product_name');
-    document.getElementsByTagName("title").innerHtml = name;
+    document.getElementsByTagName("title").innerHtml = urlParams.get('product_name');
 
     let i = urlParams.get("product_line_id")
     let j = urlParams.get("product_name_id")
 
     let product_card = document.getElementById("products_content").querySelector("#product_card")
-    setProductCard(product_card, subsection[i][j], i, j, true)
+    setProductCard(product_card, subsection[i][j], i, j, true, true)
+}
+
+let addProduct = function(value) {
+    let list = ["temp"];
+
+    if (localStorage.length !== 0)
+        list = JSON.parse(localStorage.getItem("product"))
+    if (list.indexOf(value) === -1)
+        list.push(value)
+    if (localStorage.length === 0) list.shift()
+    localStorage.setItem("product", JSON.stringify(list))
+}
+
+let addToBasket = function (shoppingCartImg) {
+    if (shoppingCartImg.getAttribute("src") === "img/icons/added.svg") return;
+    shoppingCartImg.setAttribute("src", "img/icons/added.svg");
+    let selectBasket = document.createElement("a");
+    selectBasket.setAttribute("href", "basket.html");
+    selectBasket.innerHTML = "Перейти в корзину";
+    let description = document.getElementById("description");
+    description.append(selectBasket);
+    addProduct(window.location.search);
+}
+
+let fill_basket = function () {
+    if (localStorage.length === 0) return;
+    let chosen_products = document.getElementById("chosen_products");
+    let product_card = chosen_products.querySelector("#product_card");
+    let urlParams;
+    let subsection = getSubsection();
+    let list = JSON.parse(localStorage.getItem("product"))
+    let k = 0;
+    let sum = 0;
+    do {
+        urlParams = new URLSearchParams(list[k]);
+
+        let i = urlParams.get("product_line_id");
+        let j = urlParams.get("product_name_id");
+        setProductCard(product_card, subsection[i][j], i, j, false, false);
+        product_card.querySelector("a").setAttribute("href", "product_card.html?product_line_id=" + i
+            + "&product_name_id=" + j);
+        product_card.querySelector("#plus").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("#minus").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("#cancel").setAttribute("alt", subsection[i][j].price)
+        chosen_products.append(product_card)
+        product_card = product_card.cloneNode(true);
+        sum += Number(subsection[i][j].price);
+        k++;
+    } while (k < list.length)
+    document.getElementById("basket").style.display = "flex";
+    document.getElementById("num").innerText = "Кол-во:  " + list.length;
+    document.getElementById("sum").innerText = "Итого:  " + sum;
+}
+
+let clearBasket = function () {
+    if (localStorage.length === 0) {
+        alert("Вы ничего не выбрали. Зайдите в Меню и добавьте товар в корзину, чтобы оформить заказ.")
+        return;
+    }
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
+    alert("Спасибо за покупку, заказ №000000 на сумму " + sum + " ₽ ожидает вас в месте доставки!")
+    localStorage.clear()
+    location.reload()
+}
+
+let plus = function (plus_img) {
+    let price = Number(plus_img.getAttribute("alt"));
+    let span = plus_img.parentElement.parentElement.querySelector("span");
+    let num = document.getElementById("num").innerText;
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
+    num = +/\d+/.exec(num);
+    num++;
+    document.getElementById("num").innerText = "Кол-во:  " + num;
+    document.getElementById("sum").innerText = "Итого:   " + (sum + price);
+    num = Number(span.innerText) + 1;
+    span.innerText = num
+}
+
+let minus = function (minus_img) {
+    let price = Number(minus_img.getAttribute("alt"));
+    let span = minus_img.parentElement.querySelector("span");
+    let num1 = document.getElementById("num").innerText;
+    let num2 = span.innerText;
+    let sum = document.getElementById("sum").innerText
+    sum = +/\d+/.exec(sum);
+    num1 = +/\d+/.exec(num1);
+    if (num1 !== 1 && Number(num2) !== 1) {
+        num1--;
+        num2 = Number(num2) - 1;
+        document.getElementById("num").innerText = "Кол-во:  " + num1;
+        document.getElementById("sum").innerText = "Итого:   " + (sum - price)
+        span.innerText = num2
+    }
+}
+
+let cancel = function (cancel_img) {
+    let price = Number(cancel_img.getAttribute("alt"));
+    let sum = +/\d+/.exec(document.getElementById("sum").innerHTML);
+    let num = +/\d+/.exec(document.getElementById("num").innerHTML);
+    let temp = Number(cancel_img.parentElement.querySelector("span").innerHTML);
+
+    document.getElementById("sum").innerText = "Итого:   " + (sum - price * temp);
+    document.getElementById("num").innerText = "Кол-во:  " + (num - temp);
+
+    temp = cancel_img.parentElement.previousElementSibling.
+    getAttribute("href").replace("product_card.html", "")
+
+    let list = JSON.parse(localStorage.getItem("product"))
+
+    for (let i = 0; i < list.length; i++) {
+        if (list[i] === temp) {
+            list.splice(i, 1);
+        }
+    }
+
+    if (list.length === 0)
+        localStorage.clear()
+    else
+        localStorage.setItem("product", JSON.stringify(list))
+    cancel_img.parentElement.parentElement.remove()
 }

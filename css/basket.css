@@ -1,0 +1,123 @@
+
+#basket {
+    display: none;
+    height: 100%;
+}
+
+main {
+    height: 100%;
+}
+
+.chosen_products {
+    width: 70%;
+}
+
+#product_card {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+
+#product_image {
+    width: 9.5rem;
+}
+
+#product_name {
+    font-size: 0.75rem;
+}
+
+#product_card a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+}
+
+#description {
+    width: 60%;
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    margin-left: 5%;
+}
+
+#quantity {
+    display: flex;
+    font-size: 0.8rem;
+}
+
+#quantity, #product_name {
+    margin: 0 0 5% 0;
+}
+
+#quantity div {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#quantity img, #cancel {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+#cancel {
+    align-self: flex-end;
+}
+
+#ordering_layout {
+    width: 100%;
+}
+
+#ordering {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+}
+
+#ordering div {
+    align-self: flex-start;
+}
+
+#ordering .button {
+    align-self: flex-end;
+}
+
+
+@media screen and (min-height: 400px){
+    html {
+        height: initial;
+    }
+}
+
+@media screen and (max-width: 767px){
+
+    #product_name,
+    #quantity p {
+        font-size: 0.6rem;
+    }
+
+    #description {
+        margin-left: 5%;
+    }
+
+    #quantity div{
+        width: 80%;
+    }
+
+    #ordering {
+        width: 80%;
+    }
+
+    #product_image {
+        width: 7rem;
+    }
+
+    #description input, #description label {
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}

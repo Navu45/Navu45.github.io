@@ -4,48 +4,43 @@
  _____________________________________________________________
  */
 
-@media screen and (min-device-width: 1080px){
-    @media screen and (max-width: 768px) {
-        html {
-            font-size: 24px;
-        }
-
-        .button {
-            font-size: 1rem;
-        }
-    }
-
-    @media screen and (min-width: 768px) {
-        html {
-            font-size: 32px;
-        }
-
-        .button {
-            font-size: 1rem;
-        }
-    }
-
-    .content {
-        padding-left: 13%;
-        padding-right: 13%;
-    }
+html {
+    height: 100%;
 }
 
-@media screen and (max-device-width: 1079px){
+@media screen and (min-width: 768px) {
     html {
-        font-size: 64px;
+        font-size: 32px;
     }
 
-
-    .content {
-        padding-left: 5%;
-        padding-right: 5%;
+    .button {
+        font-size: 1rem;
     }
 }
 
+@media screen and (max-width: 767px) {
+    html {
+        font-size: 28px;
+    }
 
-.wrapper {
-    flex: 1 0 auto;
+    .button {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    html {
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 0.75rem;
+    }
+}
+
+.content {
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 p {
@@ -56,9 +51,13 @@ p {
     position: relative;
     font-family: Noto_Serif;
     align-self: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: black;
+}
+
+.wrapper{
+    min-height: 75%;
 }
 
 body {
@@ -70,6 +69,7 @@ body {
 main {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .content_layout {
@@ -99,7 +99,7 @@ ul {
 .button {
     font-family: "Yanone Kaffeesatz";
     background-color: #ff5858;
-    width: fit-content;
+    width: max-content;
     padding: 0.25rem 0.83rem;
     border-radius: 1.25rem;
     border-color: #F57676;
@@ -163,6 +163,7 @@ li, .list_item {
     display: inline-flex;
     width: 100%;
     height: 2.3rem;
+    min-height: fit-content;
     background: white;
     top: 0;
     border-bottom: 0.125rem solid #F5F38E;
@@ -245,6 +246,7 @@ li, .list_item {
  */
 .footer_layout {
     display: flex;
+    flex: 0 0 auto;
     align-items: flex-start;
     justify-content: space-evenly;
     width: 100%;
@@ -296,27 +298,6 @@ li, .list_item {
         display: flex;
         margin-top: 0.42rem;
         justify-content: flex-start;
-    }
-
-    .footer_layout {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media screen and (max-device-width: 1080px){
-    footer {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 0.42rem;
-    }
-
-    #payment_icons, #social_media {
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin-top: 0.42rem;
-        margin-left: -0.5rem;
     }
 
     .footer_layout {

@@ -5,31 +5,66 @@
     <title>Моя корзина</title>
     <link rel="stylesheet" href="css/normalize.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/basket.css" type="text/css">
+    <script src="js/app.js"></script>
+    <meta name='viewport' content='width=device-width,initial-scale=1'/>
+    <meta content='true' name='HandheldFriendly'/>
+    <meta content='width' name='MobileOptimized'/>
+    <meta content='yes' name='apple-mobile-web-app-capable'/>
 </head>
 <body>
 <div class="wrapper">
-    <header class="header_layout">
-        <a class="page_title" href="index.html">SWEET SHOP</a>
-        <input id="toggle_btn" class="checkbox" type="checkbox"/>
-        <label id="checkbox_btn" class="is_clickable" for="toggle_btn">
-            <span id="bar1"></span>
-            <span id="bar2"></span>
-            <span id="bar3"></span>
-        </label>
-        <nav id="header_menu" class="drop_down_list">
-            <a class="list_item" href="products.html">Меню</a>
-            <a class="list_item" href="basket.html">Моя корзина</a>
-            <a class="list_item" href="profile.html">Мой профиль</a>
-        </nav>
-    </header>
+<header class="header_layout">
+    <a class="page_title" href="index.html">SWEET SHOP</a>
+    <input id="toggle_btn" class="checkbox" type="checkbox"/>
+    <label id="checkbox_btn" class="is_clickable" for="toggle_btn">
+        <span id="bar1"></span>
+        <span id="bar2"></span>
+        <span id="bar3"></span>
+    </label>
+    <nav id="header_menu" class="drop_down_list">
+        <a class="list_item" href="products.html">Меню</a>
+        <a class="list_item" href="basket.html">Моя корзина</a>
+        <a class="list_item" href="profile.html">Мой профиль</a>
+    </nav>
+</header>
 
-    <main id="main">
-        <p class="page_title">Моя корзина</p>
-        <section id="basket" class="content_layout content">
-        </section>
-    </main>
+<main id="main">
+    <p class="page_title">Моя корзина</p>
+    <section id="basket" class="content_layout">
+        <div id="chosen_products">
+            <div id="product_card">
+                <a href="product_card.html?product_line_id=0&product_name_id=0">
+                    <img id="product_image" src="img/menu/cream-cake.jpg" class="image" alt="">
+                </a>
+                <div id="description">
+                    <img id="cancel" src="img/icons/cancel.svg" alt="" onclick="cancel(this)">
+                    <p id="product_name">Сметанник</p>
+                    <div>
+                        <div id="quantity">
+                            <p>Кол-во:</p>
+                            <div>
+                                <img id="plus" src="img/icons/add_circle.svg" alt="1000" onclick="plus(this)">
+                                <span>1</span>
+                                <img id="minus" src="img/icons/remove_circle.svg" alt="1000" onclick="minus(this)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="ordering_layout" class="content_layout">
+        <div id="ordering">
+            <div>
+                <p id="num">Кол-во: 0</p>
+                <p id="sum">Итого: 0</p>
+            </div>
+            <a class="button is_clickable" onclick="clearBasket()">Оформить заказ</a>
+        </div>
+    </section>
+</main>
 </div>
-
 <div class="footer_layout">
     <div>
         <footer>
@@ -63,4 +98,9 @@
     </div>
 </div>
 </body>
+
+<script>
+    fill_basket()
+    //localStorage.clear()
+</script>
 </html>
