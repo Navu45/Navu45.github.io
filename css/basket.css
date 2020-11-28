@@ -87,7 +87,7 @@ main {
 }
 
 
-@media screen and (min-height: 400px){
+@media screen and (min-height: 769px){
     html {
         height: initial;
     }
