@@ -2,6 +2,7 @@
 #basket {
     display: none;
     height: 100%;
+    margin-bottom: 0rem;
 }
 
 main {

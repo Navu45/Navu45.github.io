@@ -84,14 +84,23 @@ let openProductCard = function () {
 }
 
 let addProduct = function(value) {
-    let list = ["temp"];
+    let listProduct = ["temp"];
+    let listNum = ["temp"];
 
-    if (localStorage.length !== 0)
-        list = JSON.parse(localStorage.getItem("product"))
-    if (list.indexOf(value) === -1)
-        list.push(value)
-    if (localStorage.length === 0) list.shift()
-    localStorage.setItem("product", JSON.stringify(list))
+    if (localStorage.length !== 0) {
+        listProduct = JSON.parse(localStorage.getItem("product"))
+        listNum = JSON.parse(localStorage.getItem("numList"))
+    }
+    if (listProduct.indexOf(value) === -1) {
+        listProduct.push(value)
+        listNum.push(1)
+    }
+    if (localStorage.length === 0) {
+        listProduct.shift()
+        listNum.shift()
+    }
+    localStorage.setItem("product", JSON.stringify(listProduct))
+    localStorage.setItem("numList", JSON.stringify(listNum))
 }
 
 let addToBasket = function (shoppingCartImg) {
@@ -111,27 +120,33 @@ let fill_basket = function () {
     let product_card = chosen_products.querySelector("#product_card");
     let urlParams;
     let subsection = getSubsection();
-    let list = JSON.parse(localStorage.getItem("product"))
+    let listProducts = JSON.parse(localStorage.getItem("product"))
+    let listNum = JSON.parse(localStorage.getItem("numList"))
     let k = 0;
     let sum = 0;
+    let num = 0;
     do {
-        urlParams = new URLSearchParams(list[k]);
+        urlParams = new URLSearchParams(listProducts[k]);
 
         let i = urlParams.get("product_line_id");
         let j = urlParams.get("product_name_id");
         setProductCard(product_card, subsection[i][j], i, j, false, false);
         product_card.querySelector("a").setAttribute("href", "product_card.html?product_line_id=" + i
             + "&product_name_id=" + j);
+        product_card.querySelector("img").setAttribute("alt", k)
         product_card.querySelector("#plus").setAttribute("alt", subsection[i][j].price)
         product_card.querySelector("#minus").setAttribute("alt", subsection[i][j].price)
         product_card.querySelector("#cancel").setAttribute("alt", subsection[i][j].price)
+        product_card.querySelector("span").innerHTML = listNum[k];
         chosen_products.append(product_card)
         product_card = product_card.cloneNode(true);
-        sum += Number(subsection[i][j].price);
+        sum += subsection[i][j].price * listNum[k];
+        num += listNum[k]
         k++;
-    } while (k < list.length)
+
+    } while (k < listProducts.length)
     document.getElementById("basket").style.display = "flex";
-    document.getElementById("num").innerText = "Кол-во:  " + list.length;
+    document.getElementById("num").innerText = "Кол-во:  " + num;
     document.getElementById("sum").innerText = "Итого:  " + sum;
 }
 
@@ -159,6 +174,10 @@ let plus = function (plus_img) {
     document.getElementById("sum").innerText = "Итого:   " + (sum + price);
     num = Number(span.innerText) + 1;
     span.innerText = num
+    let list = JSON.parse(localStorage.getItem("numList"));
+    num = document.querySelector("#product_card").querySelector("img").getAttribute("alt");
+    list[Number(num)] += 1;
+    localStorage.setItem("numList",JSON.stringify(list))
 }
 
 let minus = function (minus_img) {
@@ -175,6 +194,10 @@ let minus = function (minus_img) {
         document.getElementById("num").innerText = "Кол-во:  " + num1;
         document.getElementById("sum").innerText = "Итого:   " + (sum - price)
         span.innerText = num2
+        let list = JSON.parse(localStorage.getItem("numList"));
+        num2 = document.querySelector("#product_card").querySelector("img").getAttribute("alt");
+        list[Number(num2)] -= 1;
+        localStorage.setItem("numList",JSON.stringify(list))
     }
 }
 
@@ -190,18 +213,23 @@ let cancel = function (cancel_img) {
     temp = cancel_img.parentElement.previousElementSibling.
     getAttribute("href").replace("product_card.html", "")
 
-    let list = JSON.parse(localStorage.getItem("product"))
+    let listProducts = JSON.parse(localStorage.getItem("product"))
+    let listNum = JSON.parse(localStorage.getItem("numList"))
 
-    for (let i = 0; i < list.length; i++) {
-        if (list[i] === temp) {
-            list.splice(i, 1);
+    for (let i = 0; i < listProducts.length; i++) {
+        if (listProducts[i] === temp) {
+            listProducts.splice(i, 1);
+            listNum.splice(i, 1)
         }
     }
 
-    if (list.length === 0)
+    if (listProducts.length === 0) {
         localStorage.clear()
-    else
-        localStorage.setItem("product", JSON.stringify(list))
+    }
+    else {
+        localStorage.setItem("product", JSON.stringify(listProducts))
+        localStorage.setItem("product", JSON.stringify(listProducts))
+    }
     cancel_img.parentElement.parentElement.remove()
 }
 
