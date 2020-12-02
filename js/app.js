@@ -162,9 +162,19 @@ let clearBasket = function () {
     location.reload()
 }
 
+let getParent = function (num, elem) {
+    let parent = elem.parentElement;
+    let i = num - 1;
+    while (i > 0) {
+        parent = parent.parentElement;
+        i--;
+    }
+    return parent
+}
+
 let plus = function (plus_img) {
     let price = Number(plus_img.getAttribute("alt"));
-    let span = plus_img.parentElement.parentElement.querySelector("span");
+    let span = plus_img.parentElement.querySelector("span");
     let num = document.getElementById("num").innerText;
     let sum = document.getElementById("sum").innerText
     sum = +/\d+/.exec(sum);
@@ -175,7 +185,7 @@ let plus = function (plus_img) {
     num = Number(span.innerText) + 1;
     span.innerText = num
     let list = JSON.parse(localStorage.getItem("numList"));
-    num = document.querySelector("#product_card").querySelector("img").getAttribute("alt");
+    num = getParent(5, plus_img).querySelector("img").getAttribute("alt");
     list[Number(num)] += 1;
     localStorage.setItem("numList",JSON.stringify(list))
 }
@@ -195,7 +205,7 @@ let minus = function (minus_img) {
         document.getElementById("sum").innerText = "Итого:   " + (sum - price)
         span.innerText = num2
         let list = JSON.parse(localStorage.getItem("numList"));
-        num2 = document.querySelector("#product_card").querySelector("img").getAttribute("alt");
+        num2 = getParent(5, minus_img).querySelector("img").getAttribute("alt");
         list[Number(num2)] -= 1;
         localStorage.setItem("numList",JSON.stringify(list))
     }
