@@ -250,3 +250,16 @@ let setFooter = function () {
         document.querySelector(".wrapper").style.height = "initial";
     }
 }
+
+let load = function () {
+    let loaded = sessionStorage.getItem("menu_loaded")
+    if (loaded === null || loaded === "false" && loaded !== "true") {
+        sessionStorage.setItem("menu_loaded", "true");
+        location.reload();
+    }
+    window.onbeforeunload = function() {
+        sessionStorage.setItem("menu_loaded", "false")
+    };
+}
+
+
